@@ -1,0 +1,79 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class='home' onload="javascript: resultado();">
+    
+<H2> Quiz Covid 19 - Resltado Final </H2>
+<br>
+<div class="divimg">
+    <img src="img/home11.jpg" class="img" id="myimg" />
+    
+</div>
+
+<h3> Veja qual foi o seu SCORE !!!! </h3>
+
+<h1 id="result" class="txtres"></h1>
+
+<br>
+<br>
+
+<input type="button" class="mybtn" value="Reiniciar QIZ" onclick="javascript: window.location.replace('index.html');" >
+
+
+</body>
+
+<script>
+    
+
+function resultado() {
+     var resp1 = getUrlVars()["resp1"];     
+     var resp2 = getUrlVars()["resp2"];     
+     var resp3 = getUrlVars()["resp3"];     
+     var resp4 = getUrlVars()["resp4"];
+     
+     var resp5 = getUrlVars()["resp5"];     
+     var resp6 = getUrlVars()["resp6"];     
+     var resp7 = getUrlVars()["resp7"];     
+     var resp8 = getUrlVars()["resp8"];     
+     var resp9 = getUrlVars()["resp9"];     
+     var resp10 = getUrlVars()["resp10"];     
+     
+     var score=10;
+     if (resp1!=2) { score=score-1; }
+     if (resp2!=3) { score=score-1; }
+     if (resp3!=1) { score=score-1; }
+     if (resp4!=3) { score=score-1; }
+     if (resp5!=2) { score=score-1; }
+     if (resp6!=1) { score=score-1; }
+     if (resp7!=2) { score=score-1; }
+     if (resp8!=2) { score=score-1; }
+     if (resp9!=1) { score=score-1; }
+     if (resp10!=2) { score=score-1; }
+
+     // continue com 5 ate 10  !!!
+     var txt='SEU RESULTADO';
+     if (score>6) { txt='SEU RESULTADO FOI SATISFATÓRIO ! -> SEU SCORE FOI ' + score +'/10'; }
+     if (score<6) { 
+                   txt='SEU RESULTADO FOI PÉSSIMO ! -> SEU SCORE FOI ' + score +'/10'; 
+                   document.getElementById('myimg').src='img/errou.jpg';
+                          
+        }
+     if (score>9) { txt='SEU RESULTADO FOI EXCELENTE ! -> SEU SCORE FOI ' + score +'/10'; }
+          
+     document.getElementById('result').innerHTML='<p>'+txt+'</p>';
+        
+         
+}
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+</script>
+
+</html>

@@ -1,0 +1,122 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class='home'>
+    
+<H2> Quiz Covid 19 - Pergunta 10 </H2>
+<br>
+<div class="divimg" >
+    <img src="img/home11.jpg" class="img" />
+    
+</div>
+
+<h3> Alccol gel deve ser utilizado ? </h3>
+
+<table class="mytable">
+    <tr>
+        <td>
+            <input type="checkbox" id="op1" onclick="javascript: verop(this.checked,1);">
+        </td>
+        <td>
+            Somente nos pés !            
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            <input type="checkbox" id="op2" onclick="javascript: verop(this.checked,2);">
+        </td>
+        <td>
+            Sim nas mãos !            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td>
+            <input type="checkbox" id="op3" onclick="javascript: verop(this.checked,3);">
+        </td>
+        <td>
+            somente no cabelo!            
+        </td>
+    </tr>
+    
+    
+</table>
+
+<br>
+<br>
+
+<input type="button" class="mybtn" value="Próximo" onclick="javascript: saida();" >
+
+
+</body>
+
+<script>
+    
+function verop(chk,op) {
+    if (op==1) {
+        if (chk==true || chk==1) {
+              document.getElementById("op2").checked=false;
+              document.getElementById("op3").checked=false;              
+          }
+    }
+    if (op==2) {
+        if (chk==true || chk==1) {
+              document.getElementById("op1").checked=false;
+              document.getElementById("op3").checked=false;              
+          }
+    }
+    
+    if (op==3) {
+        if (chk==true || chk==1) {
+              document.getElementById("op1").checked=false;
+              document.getElementById("op2").checked=false;              
+          }
+    }
+    
+    
+}    
+
+function saida() {
+     var op1=document.getElementById("op1");
+     var op2=document.getElementById("op2");              
+     var op3=document.getElementById("op3");
+     
+     var resp1 = getUrlVars()["resp1"];     
+     var resp2 = getUrlVars()["resp2"];     
+     var resp3 = getUrlVars()["resp3"];     
+     var resp4 = getUrlVars()["resp4"];     
+     var resp5 = getUrlVars()["resp5"];     
+     var resp6 = getUrlVars()["resp6"];     
+     var resp7 = getUrlVars()["resp7"];     
+     var resp8 = getUrlVars()["resp8"];     
+     var resp9 = getUrlVars()["resp9"];     
+     
+     
+     if (op1.checked==false && op2.checked==false && op3.checked==false) {
+         alert('Favor escolher uma opção de resposta !!');
+         return;
+     }
+     
+     var resp10='';
+     if (op1.checked==true) { resp10=1; }
+     if (op2.checked==true) { resp10=2; }
+     if (op3.checked==true) { resp10=3; }
+     
+     window.location.replace('pageresult.html?resp1='+resp1+'&resp2='+resp2+'&resp3='+resp3+'&resp4='+resp4+'&resp5='+resp5+'&resp6='+resp6+'&resp7='+resp7+'&resp8='+resp8+'&resp9='+resp9+'&resp10='+resp10);
+         
+}
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+</script>
+
+</html>

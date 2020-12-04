@@ -1,0 +1,115 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class='home'>
+    
+<H2> Quiz Covid 19 - Pergunta 4 </H2>
+<br>
+<div class="divimg" >
+    <img src="img/home5.jpg" class="img" />
+    
+</div>
+
+<h3> Qual é o metodo mais utilizados em ambientes publico para evitar o contagio </h3>
+
+<table class="mytable">
+    <tr>
+        <td>
+            <input type="checkbox" id="op1" onclick="javascript: verop(this.checked,1);">
+        </td>
+        <td>
+            Liberação das festas !            
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            <input type="checkbox" id="op2" onclick="javascript: verop(this.checked,2);">
+        </td>
+        <td>
+            open bar !            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td>
+            <input type="checkbox" id="op3" onclick="javascript: verop(this.checked,3);">
+        </td>
+        <td>
+            sanitarização dos ambientes!            
+        </td>
+    </tr>
+    
+    
+</table>
+
+<br>
+<br>
+
+<input type="button" class="mybtn" value="Próximo" onclick="javascript: saida();" >
+
+
+</body>
+
+<script>
+    
+function verop(chk,op) {
+    if (op==1) {
+        if (chk==true || chk==1) {
+              document.getElementById("op2").checked=false;
+              document.getElementById("op3").checked=false;              
+          }
+    }
+    if (op==2) {
+        if (chk==true || chk==1) {
+              document.getElementById("op1").checked=false;
+              document.getElementById("op3").checked=false;              
+          }
+    }
+    
+    if (op==3) {
+        if (chk==true || chk==1) {
+              document.getElementById("op1").checked=false;
+              document.getElementById("op2").checked=false;              
+          }
+    }
+    
+    
+}    
+
+function saida() {
+     var op1=document.getElementById("op1");
+     var op2=document.getElementById("op2");              
+     var op3=document.getElementById("op3");
+     
+     var resp1 = getUrlVars()["resp1"];     
+     var resp2 = getUrlVars()["resp2"];     
+     var resp3 = getUrlVars()["resp3"];     
+     
+     if (op1.checked==false && op2.checked==false && op3.checked==false) {
+         alert('Favor escolher uma opção de resposta !!');
+         return;
+     }
+     
+     var resp4='';
+     if (op1.checked==true) { resp4=1; }
+     if (op2.checked==true) { resp4=2; }
+     if (op3.checked==true) { resp4=3; }
+     
+     window.location.replace('page6.html?resp1='+resp1+'&resp2='+resp2+'&resp3='+resp3+'&resp4='+resp4);
+         
+}
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+</script>
+
+</html>
